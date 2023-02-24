@@ -1,5 +1,6 @@
 def longestPeak(array):
     peak = []
+    peakCount = 0
     maxLength = 0
 
     peakStart = True
@@ -45,6 +46,7 @@ def longestPeak(array):
             elif not increasing and peakStart:
                 if increased:
                     peakStart = False
+                    peakCount += 1
                     peak.append(value)
                     continue
 
@@ -53,7 +55,7 @@ def longestPeak(array):
                     if len(peak) > maxLength:
                         maxLength = len(peak)
                     peak = []
-                    continue    
+                    continue
 
             elif not increasing and not peakStart:
                 peakStart = False
@@ -90,7 +92,7 @@ def longestPeak(array):
                 peak = []
                 continue
 
-            elif not increased and peakStart:            
+            elif not increased and peakStart:
                 peakStart = True
                 if len(peak) > maxLength:
                     maxLength = len(peak)
@@ -103,5 +105,8 @@ def longestPeak(array):
                 if len(peak) > maxLength:
                     maxLength = len(peak)
                 continue
+
+    if peakCount == 0 or maxLength < 3:
+        maxLength = 0
 
     return maxLength
