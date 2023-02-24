@@ -12,6 +12,8 @@ def longestPeak(array):
     for index, value in enumerate(array):
         if index < len(array) - 1:
             if value == array[index + 1]:
+                if not peakStart:
+                    peak.append(value)
                 if len(peak) > maxLength:
                     maxLength = len(peak)
                 peakStart = True
