@@ -1,4 +1,4 @@
-from longestPeak import longestPeak as lp
+from longestPeak.longestPeak import longestPeak as lp
 
 array = [1, 2, 3, 2, 1, 1]
 
