@@ -1,28 +1,42 @@
 
+# def firstNonRepeatingCharacter(string):
+#     poolSet = {}
+#     first = ''
+
+#     for index, value in enumerate(string):
+#         if index == 0:
+#             first = value
+#             poolSet[value] = index
+#         elif value == first:
+#             poolSet.pop(value)
+
+#         elif value in poolSet:
+#             poolSet.pop(value)
+
+#         else:
+#             poolSet[value] = index
+
+#     return poolSet[first]
+
+
 def firstNonRepeatingCharacter(string):
-    poolSet = []
-    first = ''
-    idx = 0
+    poolSet = {}
+    first = {}
     for index, value in enumerate(string):
         if index == 0:
-            first = value
-            idx = index
-            poolSet.insert(0, value)
-
+            first[value] = index
+            poolSet[value] = index
         elif value == first:
-            poolSet.remove(value)
+            poolSet.pop(value)
 
             if len(poolSet) > 0:
-                first = poolSet.pop()
-                idx = index
-            else:
-                first = ''
-                idx = -1
+                first = poolSet.popitem()
 
         elif value in poolSet:
-            poolSet.remove(value)
+            poolSet.pop(value)
 
         else:
-            poolSet.insert(0, value)
+            poolSet[value] = index
 
-    return idx
+    index, value = first.pop()
+    return index
