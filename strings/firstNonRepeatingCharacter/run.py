@@ -1,6 +1,6 @@
 import firstNonRepeatingCharacter as fnrc
 
-string = "abcdcaf"
+string = "ababac"
 
 
 idx = fnrc.firstNonRepeatingCharacter(string)
