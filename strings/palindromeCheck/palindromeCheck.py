@@ -7,7 +7,7 @@ def isPalindrome(string):
         if value != string[size - index - 1]:
             isPalindrome = False
             return isPalindrome
-    
+
     isPalindrome = True
 
     return isPalindrome
