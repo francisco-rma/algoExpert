@@ -1,24 +1,20 @@
 def mergeOverlappingIntervals(intervals):
+
+    final_intervals_dict = {}
     final_intervals = []
 
-    final_intervals.append(intervals.pop(0))
+    original_size = len(intervals)
+    final_intervals_dict[original_size] = intervals.pop(0)
 
-    process_count = 1
     i = len(intervals)
 
-    while process_count > 0 and i > 0:
-        process_count = 0
-
-        if len(intervals) == 0:
-            for index, value in enumerate(final_intervals):
-                intervals.append(value)
-
-        i = len(intervals)
+    while i > 0:
         interval = intervals.pop(0)
+        i = len(intervals)
 
         merged = False
 
-        for index, value in enumerate(final_intervals):
+        for key, value in final_intervals_dict.items():
 
             final_max = value[len(value) - 1]
             final_min = value[0]
@@ -37,19 +33,18 @@ def mergeOverlappingIntervals(intervals):
                     final_max = interval[len(interval) - 1]
 
                 final_interval = [final_min, final_max]
+                final_intervals_dict[key] = final_interval
 
-                if final_interval not in final_intervals:
-                    final_intervals[index] = final_interval
-                    process_count += 1
-                    merged = True
-
-                    break
+                merged = True
+                break
 
         if merged:
             continue
 
-        elif interval not in final_intervals:
-            final_intervals.append(interval)
-            process_count += 1
+        else:
+            final_intervals_dict[i] = interval
+
+    for key, value in final_intervals_dict.items():
+        final_intervals.append(value)
 
     return final_intervals
