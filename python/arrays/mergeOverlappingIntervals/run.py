@@ -1,6 +1,4 @@
 from mergeOverlappingIntervals import mergeOverlappingIntervals as moi
-from closeSolution import mergeOverlappingIntervals as cmoi
-from newTry import mergeOverlappingIntervals as nmoi
 
 array = [
     [43, 49],
@@ -10,6 +8,6 @@ array = [
     [91, 93]
 ]
 
-longestPeak = nmoi(array)
+test = moi(array)
 
-print(longestPeak)
+print(test)
