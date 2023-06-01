@@ -1,4 +1,3 @@
+mergeOverlappingIntervals {
 
-mergeOverlappingIntervals(){
-    
 }
