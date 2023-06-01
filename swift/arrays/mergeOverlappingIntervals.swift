@@ -1,3 +1,5 @@
-mergeOverlappingIntervals {
+func mergeOverlappingIntervals() {
 
 }
+
+mergeOverlappingIntervals()
