@@ -1,5 +1,0 @@
-func mergeOverlappingIntervals() {
-
-}
-
-mergeOverlappingIntervals()
